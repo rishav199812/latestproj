@@ -11,5 +11,10 @@ pipeline{
                 echo "Second Stage"
             }
         }
+        stage ('test'){
+            steps{
+                sh "pwd"
+            }
+        }
     }
 }
