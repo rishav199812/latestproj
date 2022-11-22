@@ -14,6 +14,7 @@ pipeline{
         stage ('test'){
             steps{
                 sh "pwd"
+                sh "pytest ./tests/test_data.py"
             }
         }
     }
