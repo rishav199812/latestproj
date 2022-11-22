@@ -1,7 +1,6 @@
 pipeline{
     agent { label 'docker' }
         docker { image 'python:3' }
-    }
     stages{
         stage('Hello'){
             steps{
