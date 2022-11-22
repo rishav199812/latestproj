@@ -14,7 +14,7 @@ pipeline{
         stage ('test'){
             steps{
                 sh "pwd"
-                sh "pip3 install --user -r requirements.txt"
+                sh "pip install --user -r requirements.txt"
                 sh "pytest ./tests/test_data.py"
             }
         }
