@@ -1,13 +1,24 @@
-pipeline {
-    agent { docker { image 'python:3.10.7-alpine' } }
-    stages {
-        stage('Initialize'){
-        def dockerHome = tool 'mydocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
+pipeline{
+    agent any {
+        docker { image 'python:3' }
     }
-        stage('build') {
-            steps {
-                sh 'python --version'
+    stages{
+        stage('Hello'){
+            steps{
+                echo "Checking World"
+            }
+        }
+        stage('World'){
+            steps{
+                echo "Second Stage"
+            }
+        }
+        stage ('test'){
+            steps{
+                sh "pwd"
+                sh "pip --version"
+                sh "pip install --user -r requirements.txt"
+                sh "pytest ./tests/test_data.py"
             }
         }
     }
