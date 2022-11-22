@@ -1,14 +1,10 @@
 pipeline {
-    agent {
-          docker {
-               image 'qnib/pytest'
-          }
-     }
-     stages{
-       stage('test') {
-         steps {
-            sh 'virtualenv venv && . venv/bin/activate && pip install -r requirements.txt && python tests.py'
-     }
-     }
-}
+    agent { docker { image 'python:3.5.1' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
+        }
+    }
 }
