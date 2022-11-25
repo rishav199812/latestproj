@@ -15,7 +15,7 @@ pipeline{
                 steps {
              		 echo "Zipping folder fetch_from_S3/fetch_from_S3.py"
                      script{
-                    zip archive: true, dir: 'fetch_from_S3', glob: '', zipFile: 'fetch_from_S3.zip'
+                    zip archive: true, dir: 'tests', glob: '', zipFile: 'tests.zip'
                 }
                 // script{ 
                 // unzip zipFile: 'fetch_from_S3.zip' , dir: 'fetch_from_S3'
