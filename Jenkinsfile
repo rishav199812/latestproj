@@ -1,39 +1,17 @@
-pipeline{
-    agent any
-    stages{
-        stage('Hello'){
-            steps{
-                echo "Checking World"
-		 echo "The build number is ${env.TAG_NAME}"
-		    script {
-		 sh(returnStdout: true, script: "git tag --contains").trim()
-		    }
-            }
-        }
-        stage('World'){
-            steps{
-                echo "Second Stage"
-            }
-        }
-        stage('Deploy Lambda') {
-            parallel {
-                stage ('merg'){
-		when { tag pattern: '^mergify-*', comparator: "REGEXP" }
-                steps {
-                     script{
-                    zip archive: true, dir: 'merg', glob: '', zipFile: 'merg.zip'
-                }
-            }
-                }
-                 stage ('son'){
-              when { tag pattern: '^sonar-*', comparator: "REGEXP" }
-               steps {
-                     script{
-                    zip archive: true, dir: 'son', glob: '', zipFile: 'son.zip'
-                }
-               }
-            }
+node {
+    git url: 'https://github.com/rishav199812/latestproj'
+    env.GIT_TAG_NAME = gitTagName()
+    env.GIT_TAG_MESSAGE = gitTagMessage()
+}
+
+/** @return The tag name, or `null` if the current commit isn't a tag. */
+String gitTagName() {
+    commit = getCommit()
+    if (commit) {
+        desc = sh(script: "git describe --tags ${commit}", returnStdout: true)?.trim()
+        if (isTag(desc)) {
+            return desc
         }
     }
-}
+    return null
 }
