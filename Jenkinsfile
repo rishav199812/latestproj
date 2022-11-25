@@ -13,14 +13,18 @@ pipeline{
         }
         stage('Deploy Lambda') {
 		//when { tag "demo-*" }
-		when { tag pattern: '^demo-*', comparator: "REGEXP" }
+		when { tag pattern: '^mergify-*', comparator: "REGEXP" }
                 steps {
-             		 echo "Zipping folder"
                      script{
-                    zip archive: true, dir: 'demotst', glob: '', zipFile: 'demotst.zip'
+                    zip archive: true, dir: 'merg', glob: '', zipFile: 'merg.zip'
                 }
-                    echo "Deploying Lambda"
-		        }
-	}
+            }
+        when { tag pattern: '^sonar-*', comparator: "REGEXP" }
+               steps {
+                     script{
+                    zip archive: true, dir: 'son', glob: '', zipFile: 'son.zip'
+                }
+            }
     }
+}
 }
