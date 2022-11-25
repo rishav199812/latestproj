@@ -27,5 +27,6 @@ pipeline{
             		echo "Deploying Lambda"
 			        //sh "aws lambda update-function-code --function-name ${params.Lambda}-${params.Environment} --zip-file fileb://fetch_from_S3.zip"
 		        }
+	}
     }
 }
