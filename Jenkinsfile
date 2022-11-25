@@ -4,6 +4,7 @@ pipeline{
         stage('Hello'){
             steps{
                 echo "Checking World"
+		 echo "The build number is ${env.TAG_NAME}"
             }
         }
         stage('World'){
