@@ -12,7 +12,7 @@ pipeline{
             }
         }
         stage('Deploy Lambda') {
-		when { tag "demo-*" }
+		//when { tag "demo-*" }
                 steps {
              		 echo "Zipping folder fetch_from_S3/fetch_from_S3.py"
                      script{
