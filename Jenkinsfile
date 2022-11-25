@@ -12,11 +12,11 @@ pipeline{
             }
         }
         stage('Deploy Lambda') {
-		//when { tag "demo-*" }
+		when { tag "demo-*" }
                 steps {
              		 echo "Zipping folder"
                      script{
-                    zip archive: true, dir: 'demotest', glob: '', zipFile: 'demotest.zip'
+                    zip archive: true, dir: 'demotst', glob: '', zipFile: 'demotst.zip'
                 }
                     echo "Deploying Lambda"
 		        }
