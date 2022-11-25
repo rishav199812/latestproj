@@ -14,7 +14,7 @@ pipeline{
         stage('Deploy Lambda') {
                 steps {
              		 echo "Zipping folder fetch_from_S3/fetch_from_S3.py"
-			zip archive: true, dir: 'tests', glob: '', zipFile: 'tests.zip'
+			//zip archive: true, dir: 'tests', glob: '', zipFile: 'tests.zip'
                      script{
                     zip archive: true, dir: 'tests', glob: '', zipFile: 'tests.zip'
                 }
