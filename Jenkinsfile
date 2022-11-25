@@ -5,6 +5,7 @@ pipeline{
             steps{
                 echo "Checking World"
 		 echo "The build number is ${env.TAG_NAME}"
+		 sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
             }
         }
         stage('World'){
