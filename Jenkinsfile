@@ -12,19 +12,24 @@ pipeline{
             }
         }
         stage('Deploy Lambda') {
-		//when { tag "demo-*" }
+            parallel {
+                stage ('merg'){
 		when { tag pattern: '^mergify-*', comparator: "REGEXP" }
                 steps {
                      script{
                     zip archive: true, dir: 'merg', glob: '', zipFile: 'merg.zip'
                 }
             }
-        when { tag pattern: '^sonar-*', comparator: "REGEXP" }
+                }
+                 stage ('son'){
+              when { tag pattern: '^sonar-*', comparator: "REGEXP" }
                steps {
                      script{
                     zip archive: true, dir: 'son', glob: '', zipFile: 'son.zip'
                 }
+               }
             }
+        }
     }
 }
 }
