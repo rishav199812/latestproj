@@ -12,7 +12,8 @@ pipeline{
             }
         }
         stage('Deploy Lambda') {
-		when { tag "demo-*" }
+		//when { tag "demo-*" }
+		when { tag pattern: '^demo-*', comparator: "REGEXP" }
                 steps {
              		 echo "Zipping folder"
                      script{
