@@ -24,12 +24,12 @@ pipeline{
     
 stages{
     stage ('hello'){
-        environment {
+      steps{
+        
     GIT_TAG_NAME = sh(script: "git describe --tags")
-}
-        steps{
+     
             
-      echo "${env.GIT_TAG_NAME}"
+      echo "${GIT_TAG_NAME}"
         }
     }
     }
