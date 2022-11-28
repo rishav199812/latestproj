@@ -3,7 +3,7 @@ pipeline {
 stages{
         stage('Hello'){
 		environment {
-			IMAGE_TAG=$(git describe --tags `git rev-list --tags --max-count=1` | sed 's/v//g')
+			IMAGE_TAG="$(git describe --tags `git rev-list --tags --max-count=1` | sed 's/v//g')"
 		}
             steps{
                 echo "Checking World"
