@@ -25,7 +25,7 @@ pipeline{
 stages{
     stage ('hello'){
         environment {
-    GIT_TAG_NAME = sh(script: "git describe --tags ${commit}", returnStdout: true)?.trim()
+    GIT_TAG_NAME = sh(script: "git describe --tags")
 }
         steps{
             
