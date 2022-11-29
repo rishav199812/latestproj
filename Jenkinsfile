@@ -19,21 +19,34 @@
 //         }
 // }
 // }
-pipeline{
-    agent any
+// pipeline{
+//     agent any
     
-stages{
-    stage ('hello'){
-        environment {
-    //GITES_TAG_NAME = sh(script: "git describe --tags")
-		TAG = "${GIT_TAG_NAME}"
-}
-        steps{
+// stages{
+//     stage ('hello'){
+//         //environment {
+//     //GITES_TAG_NAME = sh(script: "git describe --tags")
+// 		//TAG = "${GIT_TAG_NAME}"
+//}
+//         steps{
             
-      echo "${env.TAG}"
-		echo "${env.GIT_TAG_NAME}"
-		echo "${GIT_TAG_NAME}"
-        }
+//       echo "${env.TAG}"
+// 		echo "${env.GIT_TAG_NAME}"
+// 		echo "${GIT_TAG_NAME}"
+//         }
+//     }
+//     }
+// }
+pipeline{
+agent any
+stages {
+stage("Get dir size") {
+    steps {
+    script {
+      DIR_SIZE = sh(returnStdout: true, script: "git describe --tags")
     }
-    }
+    echo "dir size = ${DIR_SIZE}"
+  }
+}
+}
 }
