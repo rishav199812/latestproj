@@ -42,9 +42,9 @@ agent any
 stages {
 stage("Get dir size") {
     steps {
-   sh "mv son againtest"
+   sh "mv son tcone"
 	    script {
-	    fileOperations ([folderRenameOperation('againtest', 'demochecknewest')])
+	    fileOperations ([folderRenameOperation(String source: 'tcone', String destination: 'democheck')])
 	    }
     }
   }
