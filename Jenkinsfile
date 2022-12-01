@@ -43,9 +43,11 @@ stages {
 stage("Get dir size") {
     steps {
    sh "mv son demotoday"
+	    script {
 	    fileOperations {
            folderRenameOperation('demotoday', 'democheck')
          }
+	    }
     }
   }
 }
