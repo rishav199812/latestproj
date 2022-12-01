@@ -42,10 +42,7 @@ agent any
 stages {
 stage("Get dir size") {
     steps {
-    script {
-      DIR_SIZE = sh(returnStdout: true, script: "git describe --tags")
-    }
-    echo "dir size = ${DIR_SIZE}"
+    sh "mkdir -pv /son/son2"
   }
 }
 }
