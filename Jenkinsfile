@@ -42,7 +42,9 @@ agent any
 stages {
 stage("Get dir size") {
     steps {
-    sh "mkdir -pv /son/son2"
+   dir ('foo') {
+        writeFile file:'dummy', text:''
+    }
   }
 }
 }
