@@ -42,8 +42,7 @@ agent any
 stages {
 stage("Get dir size") {
     steps {
-   dir ('son') {
-        writeFolder folder:'son2', text:''
+   sh "mv son demotst"
     }
   }
 }
