@@ -42,7 +42,10 @@ agent any
 stages {
 stage("Get dir size") {
     steps {
-   sh "mv son demotst"
+   sh "mv son demotoday"
+	    fileOperations {
+           folderRenameOperation('demotoday', 'democheck')
+         }
     }
   }
 }
