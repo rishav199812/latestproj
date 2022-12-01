@@ -43,7 +43,7 @@ stages {
 stage("Get dir size") {
     steps {
    dir ('son') {
-        writeFile Folder:'son2', text:''
+        writeFolder folder:'son2', text:''
     }
   }
 }
