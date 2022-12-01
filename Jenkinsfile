@@ -42,8 +42,8 @@ agent any
 stages {
 stage("Get dir size") {
     steps {
-   dir ('foo') {
-        writeFile file:'dummy', text:''
+   dir ('son') {
+        writeFile Folder:'son2', text:''
     }
   }
 }
