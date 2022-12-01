@@ -44,7 +44,7 @@ stage("Get dir size") {
     steps {
    sh "mv son tcone"
 	    script {
-	    fileOperations ([folderRenameOperation(String source: 'tcone', String destination: 'democheck')])
+	    fileOperations ([folderRenameOperation(source: 'tcone', destination: 'democheck')])
 	    }
     }
   }
