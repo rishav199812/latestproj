@@ -47,4 +47,3 @@ stage("Get dir size") {
   }
 }
 }
-}
