@@ -46,7 +46,7 @@ stage("Get dir size") {
 	    script {
 	    def newFolder = "demochecknew"
             def sourceFolder = "demotest"	
-             writeFolder(file: newFolder, encoding: "UTF-8", text: readFolder(file: sourceFolder, encoding: "UTF-8"))
+             writeFolder(folder: newFolder, encoding: "UTF-8", text: readFolder(folder: sourceFolder, encoding: "UTF-8"))
 	    }
     }
   }
