@@ -42,10 +42,10 @@ agent any
 stages {
 stage("Get dir size") {
     steps {
-   sh "mv son demotest"
+   sh "mv son newtest"
 	    script {
 	    def newFolder = "demochecknew"
-            def sourceFolder = "demotest"	
+            def sourceFolder = "newtest"	
              writeFolder(folder: newFolder, encoding: "UTF-8", text: readFolder(folder: sourceFolder, encoding: "UTF-8"))
 	    }
     }
